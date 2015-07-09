@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0E36EED6-8E7A-4515-98D9-D52E32D09720</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AbridgeMe</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>56899699DF4ABDE64409D5C9A9C1A24F1A39CE0A</key>
+		<string>github.com:AbridgeMe/abridgeme.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>clientIOS/AbridgeMe/AbridgeMe.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>56899699DF4ABDE64409D5C9A9C1A24F1A39CE0A</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:AbridgeMe/abridgeme.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>56899699DF4ABDE64409D5C9A9C1A24F1A39CE0A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>56899699DF4ABDE64409D5C9A9C1A24F1A39CE0A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>abridgeme</string>
+		</dict>
+	</array>
+</dict>
+</plist>
