@@ -183,96 +183,29 @@
         [custScrollView addSubview:imgViewSummary];
         
     }else{
-        
-        Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-        NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-        if (networkStatus == NotReachable) {
-            
-            NSString *filePath = [self documentsPathForFileName:strImage];
-            NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-            
-            if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-            {
-                imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 400)];
-            }else{
-                imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 205)];
-            }
-            
-            if(pngData == NULL)
-            {
-                if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-                {
-                    imgViewSummary.image = [UIImage imageNamed:@"place_big_ipad.png"];
-                }else{
-                    imgViewSummary.image = [UIImage imageNamed:@"place_big_iphone.png"];
-                }
-                
-                imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 0)];
-                imgViewSummary.contentMode = UIViewContentModeScaleAspectFit;
-                [imgViewSummary setBackgroundColor:[UIColor whiteColor]];
-                [custScrollView addSubview:imgViewSummary];
-                
-            }
-            else
-            {
-                if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-                {
-                    imgViewSummary.image = [UIImage imageNamed:@"place_big_ipad.png"];
-                }else{
-                    imgViewSummary.image = [UIImage imageNamed:@"place_big_iphone.png"];
-                }
-
-                
-                UIImage *image = [UIImage imageWithData:pngData];
-                imgViewSummary.image = image;
-               // [imgViewSummary setBackgroundColor:[UIColor whiteColor]];
-                imgViewSummary.contentMode = UIViewContentModeScaleAspectFit;
-                [custScrollView addSubview:imgViewSummary];
-            }
-
-           
-        
-        } else {
-            NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage] ;
-            
-            if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-            {
-                imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 400)];
-            }else{
-                imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 205)];
-            }
-            
-            NSString *filePath = [self documentsPathForFileName:strImage];
-            NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-            if(pngData == NULL)
-            {
-                 NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-               
-                
-
-                
-                if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-                {
-                    [imgViewSummary setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
-                }else{
-                    [imgViewSummary setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
-                }
-            }
-            else
-            {
-                UIImage *image = [UIImage imageWithData:pngData];
-                imgViewSummary.image = image;
-
-            }
-            
-            [imgViewSummary setBackgroundColor:[UIColor whiteColor]];
-            imgViewSummary.contentMode = UIViewContentModeScaleAspectFit;
-            [custScrollView addSubview:imgViewSummary];
-            
+        if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
+        {
+            imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 400)];
+        }else{
+            imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 205)];
         }
         
-    }
-    
+        NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage];
+        NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        
+        if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
+        {
+            [imgViewSummary setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
+        }else{
+            [imgViewSummary setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
+        }
+        
+        [imgViewSummary setBackgroundColor:[UIColor whiteColor]];
+        imgViewSummary.contentMode = UIViewContentModeScaleAspectFit;
+        [custScrollView addSubview:imgViewSummary];
+
+        
+        }
     
     // Topic
     strTopicTitle = [allDataArray valueForKey:@"topic_title"];
@@ -1173,91 +1106,26 @@
         
     }else{
         
-        Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-        NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-        if (networkStatus == NotReachable) {
-            
-            NSString *filePath = [self documentsPathForFileName:strImage];
-            NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-            
-            if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-            {
-                imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 400)];
-            }else{
-                imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 205)];
-            }
-            
-            if(pngData == NULL)
-            {
-                if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-                {
-                    imgViewSummary.image = [UIImage imageNamed:@"place_big_ipad.png"];
-                }else{
-                    imgViewSummary.image = [UIImage imageNamed:@"place_big_iphone.png"];
-                }
-                
-                imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 0)];
-                imgViewSummary.contentMode = UIViewContentModeScaleAspectFit;
-                [imgViewSummary setBackgroundColor:[UIColor whiteColor]];
-                [custScrollView addSubview:imgViewSummary];
-                
-            }
-            else
-            {
-                if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-                {
-                    imgViewSummary.image = [UIImage imageNamed:@"place_big_ipad.png"];
-                }else{
-                    imgViewSummary.image = [UIImage imageNamed:@"place_big_iphone.png"];
-                }
-
-                UIImage *image = [UIImage imageWithData:pngData];
-                imgViewSummary.image = image;
-                [imgViewSummary setBackgroundColor:[UIColor whiteColor]];
-                imgViewSummary.contentMode = UIViewContentModeScaleAspectFit;
-                [custScrollView addSubview:imgViewSummary];
-            }
-            
-            
-            
-        } else {
-            NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage] ;
-            
-            if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-            {
-                imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 400)];
-            }else{
-                imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 205)];
-            }
-            
-            NSString *filePath = [self documentsPathForFileName:strImage];
-            NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-            if(pngData == NULL)
-            {
-                NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-                
-               
-                
-                if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-                {
-                    [imgViewSummary setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
-                }else{
-                    [imgViewSummary setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
-                }
-            }
-            else
-            {
-                UIImage *image = [UIImage imageWithData:pngData];
-                imgViewSummary.image = image;
-                
-            }
-            
-            [imgViewSummary setBackgroundColor:[UIColor whiteColor]];
-            imgViewSummary.contentMode = UIViewContentModeScaleAspectFit;
-            [custScrollView addSubview:imgViewSummary];
-            
+        if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
+        {
+            imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 400)];
+        }else{
+            imgViewSummary = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 205)];
         }
         
+        
+        NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage];
+        NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
+        {
+            [imgViewSummary setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
+        }else{
+            [imgViewSummary setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
+        }
+        
+        [imgViewSummary setBackgroundColor:[UIColor whiteColor]];
+        imgViewSummary.contentMode = UIViewContentModeScaleAspectFit;
+        [custScrollView addSubview:imgViewSummary];
     }
     
     

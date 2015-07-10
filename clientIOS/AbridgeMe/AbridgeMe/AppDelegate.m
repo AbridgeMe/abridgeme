@@ -368,42 +368,6 @@ NSString *const FBSessionStateChangedNotification = @"com.abridgeme.AbridgeMe:FB
             
             ViewController *obj = [[ViewController alloc]init];
             [obj FetchRecordAppMinimizeReopen];
-        
-            dispatch_queue_t myQueue = dispatch_queue_create("MyQueue1234567",NULL);
-            dispatch_async(myQueue, ^{
-                // Perform long running process
-                NSArray *arrayImagesData = [[dict valueForKey:@"result"]valueForKey:@"result"];
-            
-                for(int i=0 ; i< [arrayImagesData count];i++)
-                {
-                    NSString *filename =[NSString stringWithFormat:@"%@",[[arrayImagesData objectAtIndex:i]valueForKey:@"topic_image"]];
-                    
-                    if([filename isEqualToString:@""]){
-                        NSLog(@"No image found");
-                    }else{
-                        NSString *filePath = [self documentsPathForFileName:filename];
-                        NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-                        if(pngData == NULL)
-                        {
-                            NSString *str_url=[NSString stringWithFormat:@"%@%@",str_global_summary_image,filename];
-                            
-                            NSData *pngData = [NSData dataWithContentsOfURL:[NSURL URLWithString:str_url]];
-                            
-                            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-                            NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
-                            NSString *filePath = [documentsPath stringByAppendingPathComponent:filename]; //Add the file name
-                            [pngData writeToFile:filePath atomically:YES]; //Write the file
-                        }
-                    }
-                    
-                }
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                   
-                });
-            });
-
-        
         }
 }
 
@@ -432,45 +396,8 @@ NSString *const FBSessionStateChangedNotification = @"com.abridgeme.AbridgeMe:FB
         
                 [self writeJsonToFile:[[dict valueForKey:@"result"]valueForKey:@"result"] index:0];
 
-            [SummaryDataDictArray addObject:dict];
-        
-        
-        dispatch_queue_t myQueue = dispatch_queue_create("My Queue123444",NULL);
-        dispatch_async(myQueue, ^{
-            // Perform long running process
-            NSArray *arrayImagesData = [[dict valueForKey:@"result"]valueForKey:@"result"];
-            for(int i=0 ; i< [arrayImagesData count];i++)
-            {
-                NSString *filename =[NSString stringWithFormat:@"%@",[[arrayImagesData objectAtIndex:i]valueForKey:@"topic_image"]];
-                
-                if([filename isEqualToString:@""]){
-                    NSLog(@"No image found");
-                }else{
-                    NSString *filePath = [self documentsPathForFileName:filename];
-                    NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-                    if(pngData == NULL)
-                    {
-                        NSString *str_url=[NSString stringWithFormat:@"%@%@",str_global_summary_image,filename];
-                        
-                        NSData *pngData = [NSData dataWithContentsOfURL:[NSURL URLWithString:str_url]];
-                        
-                        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-                        NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
-                        NSString *filePath = [documentsPath stringByAppendingPathComponent:filename]; //Add the file name
-                        [pngData writeToFile:filePath atomically:YES]; //Write the file
-                    }
-                }
-                
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                
-            });
-        });
-        
-       
- 
-        
+        [SummaryDataDictArray addObject:dict];
+
         NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
         
         NSString *documentsPath = [paths objectAtIndex:0];

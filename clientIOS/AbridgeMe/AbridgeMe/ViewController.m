@@ -821,59 +821,19 @@ RevealBlock _revealBlock;
             
             
             NSString *strImage=[NSString stringWithFormat:@"%@",[allData valueForKey:@"topic_image"]];
-            if([strImage isEqualToString:@""])
+            if(strImage.length)
             {
+                NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage];
                 
+                NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
                 
-            }
-            else
-            {
-                Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-                NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-                if (networkStatus == NotReachable)
+                if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
                 {
-                    
-                    NSString *filePath = [self documentsPathForFileName:strImage];
-                    NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-                    if(pngData == NULL)
-                    {
-                        
-                    }
-                    else
-                    {
-                        UIImage *image = [UIImage imageWithData:pngData];
-                        cell.imgviewArticle.image=image;
-                    }
-                } else {
-                    
-                    NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage] ;
-                    
-                    NSString *filePath = [self documentsPathForFileName:strImage];
-                    NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-                    if(pngData == NULL)
-                    {
-                        NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-                        
-                        if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-                        {
-                            [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
-                        }else{
-                            [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
-                        }
-                        
-                        
-                    }
-                    else
-                    {
-                        UIImage *image = [UIImage imageWithData:pngData];
-                        
-                        cell.imgviewArticle.image=image;
-                    }
+                    [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
+                }else{
+                    [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
                 }
-                
-                
             }
-
     
         }
     
@@ -913,59 +873,20 @@ RevealBlock _revealBlock;
                     
                     
                     NSString *strImage=[NSString stringWithFormat:@"%@",[allData valueForKey:@"topic_image"]];
-                    if([strImage isEqualToString:@""])
+                    if(strImage.length)
                     {
+                        NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage] ;
                         
+                        NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
                         
-                    }
-                    else
-                    {
-                        Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-                        NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-                        if (networkStatus == NotReachable)
+                        if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
                         {
-                            
-                            NSString *filePath = [self documentsPathForFileName:strImage];
-                            NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-                            if(pngData == NULL)
-                            {
-                                
-                            }
-                            else
-                            {
-                                UIImage *image = [UIImage imageWithData:pngData];
-                                cell.imgviewArticle.image=image;
-                            }
-                        } else {
-            
-                            NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage] ;
-                            
-                            NSString *filePath = [self documentsPathForFileName:strImage];
-                            NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-                            if(pngData == NULL)
-                            {
-                                NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-                  
-                                if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-                                {
-                                    [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
-                                }else{
-                                    [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
-                                }
-                                
-                                
-                            }
-                            else
-                            {
-                                UIImage *image = [UIImage imageWithData:pngData];
-                                
-                                cell.imgviewArticle.image=image;
-                            }
+                            [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
+                        }else{
+                            [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
                         }
                         
-                        
                     }
-                    
                     
                 }else
                 {
@@ -991,55 +912,18 @@ RevealBlock _revealBlock;
                 
                         
                         NSString *strImage=[NSString stringWithFormat:@"%@",[allData valueForKey:@"topic_image"]];
-                        if([strImage isEqualToString:@""])
+                        if(strImage.length)
                         {
+                            NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage];
+                            NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
                             
-                            
-                        }
-                        else
-                        {
-                            Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-                            NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-                            if (networkStatus == NotReachable)
+                            if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
                             {
-                                
-                                NSString *filePath = [self documentsPathForFileName:strImage];
-                                NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-                                if(pngData == NULL)
-                                {
-                                   
-                                }
-                                else
-                                {
-                                    UIImage *image = [UIImage imageWithData:pngData];
-                                    cell.imgviewArticle.image=image;
-                                }
-                            } else {
-                                NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage] ;
-                                NSString *filePath = [self documentsPathForFileName:strImage];
-                                NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-                                if(pngData == NULL)
-                                {
-                                    NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-                                    
-                                    if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-                                    {
-                                        [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
-                                    }else{
-                                        [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
-                                    }
-                                }
-                                else
-                                {
-                                    UIImage *image = [UIImage imageWithData:pngData];
-                                    
-                                    cell.imgviewArticle.image=image;
-                                }
+                                [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
+                            }else{
+                                [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
                             }
-                            
-                            
                         }
-                        
                 
                     }else
                         {
@@ -1235,42 +1119,6 @@ RevealBlock _revealBlock;
 
             });
         }
-
-        dispatch_queue_t myQueue = dispatch_queue_create("My Queue12345",NULL);
-        dispatch_async(myQueue, ^{
-            // Perform long running process
-            NSArray *arrayImagesData = [[dict valueForKey:@"result"]valueForKey:@"result"];
-      
-            for(int num=0 ; num< [arrayImagesData count];num++)
-            {
-                NSString *filename =[NSString stringWithFormat:@"%@",[[arrayImagesData objectAtIndex:num]valueForKey:@"topic_image"]];
-                
-                if([filename isEqualToString:@""]){
-                    NSLog(@"No image found");
-                }else{
-                    NSString *filePath = [self documentsPathForFileName:filename];
-                    NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-                    if(pngData == NULL)
-                    {
-                        NSString *str_url=[NSString stringWithFormat:@"%@%@",str_global_summary_image,filename];
-                        
-                        NSData *pngData = [NSData dataWithContentsOfURL:[NSURL URLWithString:str_url]];
-                        
-                        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-                        NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
-                        NSString *filePath = [documentsPath stringByAppendingPathComponent:filename]; //Add the file name
-                        [pngData writeToFile:filePath atomically:YES]; //Write the file
-                    }
-                }
-                
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                
-                
-                
-            });
-        });
     }
 }
 

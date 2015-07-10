@@ -732,57 +732,18 @@
             cell.subtitleLabel.attributedText= attributedStringTopic;
             
             NSString *strImage=[NSString stringWithFormat:@"%@",[allData valueForKey:@"topic_image"]];
-            if([strImage isEqualToString:@""])
+            if(strImage.length)
             {
+                NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage];
+                NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
                 
-                
-            }
-            else
-            {
-                Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-                NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-                if (networkStatus == NotReachable)
+                if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
                 {
-                    
-                    NSString *filePath = [self documentsPathForFileName:strImage];
-                    NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-                    if(pngData == NULL)
-                    {
-                        
-                    }
-                    else
-                    {
-                        UIImage *image = [UIImage imageWithData:pngData];
-                        cell.imgviewArticle.image=image;
-                    }
-                } else {
-                    
-                    NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage] ;
-                    
-                    NSString *filePath = [self documentsPathForFileName:strImage];
-                    NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-                    if(pngData == NULL)
-                    {
-                        NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-                        
-                        if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-                        {
-                            [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
-                        }else{
-                            [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
-                        }
-                        
-                        
-                    }
-                    else
-                    {
-                        UIImage *image = [UIImage imageWithData:pngData];
-                        
-                        cell.imgviewArticle.image=image;
-                    }
+                    [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
+                }else{
+                    [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
                 }
             }
-    
             
         }else{
             strDescription = [NSString stringWithFormat:@"%@",[[allData valueForKey:@"summary"]valueForKey:@"summary_desc"]];
@@ -813,59 +774,19 @@
             cell.subtitleLabel.attributedText= attributedStringTopic;
             
             
-            
             NSString *strImage=[NSString stringWithFormat:@"%@",[allData valueForKey:@"topic_image"]];
-            if([strImage isEqualToString:@""])
+            if(strImage.length)
             {
+                NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage];
+                NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
                 
-                
-            }
-            else
-            {
-                Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-                NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-                if (networkStatus == NotReachable)
+                if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
                 {
-                    
-                    NSString *filePath = [self documentsPathForFileName:strImage];
-                    NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-                    if(pngData == NULL)
-                    {
-                        
-                    }
-                    else
-                    {
-                        UIImage *image = [UIImage imageWithData:pngData];
-                        cell.imgviewArticle.image=image;
-                    }
-                } else {
-                    
-                    NSString *img=[NSString stringWithFormat:@"%@%@",str_global_summary_image,strImage] ;
-                    
-                    NSString *filePath = [self documentsPathForFileName:strImage];
-                    NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-                    if(pngData == NULL)
-                    {
-                        NSURL *url = [NSURL URLWithString:[img stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-                        
-                        if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)
-                        {
-                            [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
-                        }else{
-                            [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
-                        }
-                        
-                        
-                    }
-                    else
-                    {
-                        UIImage *image = [UIImage imageWithData:pngData];
-                        
-                        cell.imgviewArticle.image=image;
-                    }
+                    [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_ipad.png"]];
+                }else{
+                    [cell.imgviewArticle setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place_big_iphone.png"]];
                 }
             }
-            
         }
     
     
