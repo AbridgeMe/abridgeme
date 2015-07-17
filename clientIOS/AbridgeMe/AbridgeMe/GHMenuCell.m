@@ -36,7 +36,7 @@ NSString const *kSidebarCellImageKey = @"CellImage";
 		self.textLabel.textColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
 
 		
-		UIView *topLine = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.height, 0.5f)];
+		UIView *topLine = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.width, 0.5f)];
         topLine.backgroundColor = [UIColor darkGrayColor];
 
 		[self.textLabel.superview addSubview:topLine];
